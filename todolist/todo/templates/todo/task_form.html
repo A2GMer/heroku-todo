@@ -1,0 +1,41 @@
+{% extends './layout.html' %}
+
+{% block content %}
+
+    <div>
+        <form method='post'>{% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">タスク名</label>
+                {{ form.title }}
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">作成者</label>
+                {{ form.author }}
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">カテゴリ</label>
+                {{ form.category }}
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">締切</label>
+                {{ form.deadline }}
+
+            </div>
+{#既存のデータがあったら更新、なかったら作成表示#}
+           <div class="btn-container d-flex justify-content-between">
+
+                     <a class="btn btn-secondary" href="JavaScript:history.back()">戻る</a>
+
+                    <button type="submit" class="btn btn-primary">{{ object|yesno:'更新,作成' }}</button>
+
+            </div>
+
+        </form>
+    </div>
+
+
+
+{% endblock %}
