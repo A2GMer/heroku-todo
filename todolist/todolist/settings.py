@@ -80,6 +80,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'todolist.wsgi.application'
 
+# LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = "{% url 'todo:list' %}"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
